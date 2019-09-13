@@ -14,11 +14,22 @@ function findTasks() {
       't.notes',
       't.project_id',
       'p.name as project_name',
-      'p.description as project_description'
+      'p.description as project_description',
+      't.completed'
     )
     .then(tasks => {
-      return tasks
-    })
+
+      tasks.map(task => {
+        if (task.completed === 1) {
+          task.completed = true
+          return tasks
+        } else {
+          task.completed = false
+          return tasks
+        }
+      })
+      return tasks;
+    }) 
 }
 
 function addTasks(taskData) {
