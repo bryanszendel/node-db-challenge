@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [X] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+SQL is the language we use to communicate with a Relational Database. We must structure queries in a specific way in order to get/post/update/delete data within a Relational Database.
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+- [X] Why do tables need a `primary key`?
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+Each entry within a data table must be a unique row. We can guarantee the entry is unique with a primary key that auto-increments.
+
+- [X] What is the name given to a table column that references the primary key on another table.
+
+Foreign Key.
+
+- [X] What do we need in order to have a _many to many_ relationship between two tables.
+
+We need a third table to map the corresponding ids to the 1st and 2nd tables.
 
 ## Minimum Viable Product
 
@@ -84,15 +92,15 @@ The API should return:
 
 ### Business Rules
 
-- a `project` can have multiple `tasks`.
-- a `task` belongs to only one `project`.
-- a `project` can use multiple `resources`.
-- the same `resource` can be used in multiple `projects`.
-- when adding `projects` the client must provide a name, the description is optional.
-- when adding `resources` the client must provide a name, the description is optional.
-- when adding a `task` the client must provide a description, the notes are optional.
-- when adding a `task` the client must provide the `id` of an existing project.
-- for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
+- [X] a `project` can have multiple `tasks`.
+- [X] a `task` belongs to only one `project`.
+- [X] a `project` can use multiple `resources`.
+- [X] the same `resource` can be used in multiple `projects`.
+- [X] when adding `projects` the client must provide a name, the description is optional.
+- [X] when adding `resources` the client must provide a name, the description is optional.
+- [X] when adding a `task` the client must provide a description, the notes are optional.
+- [X] when adding a `task` the client must provide the `id` of an existing project.
+- [X] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
 
 ### Entities
 
