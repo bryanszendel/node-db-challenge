@@ -1,9 +1,9 @@
 const db = require('../data/db-config');
+const tasks = require('../tasks/tasks-model.js')
 
 module.exports = {
   findProjects,
-  findProjectsById,
-  findProjectTasks,
+  findProjectById,
   addProject
 }
 
@@ -30,22 +30,20 @@ function findProjects() {
     }) 
 }
 
-function findProjectsById(id) {
+function findProjectById(id) {
+  // let tasksQuery = db('tasks').where('project_id', id)
+  // let resourcesQuery = db('resources').where('project_id', id)
   return db('projects')
-    .where({ id: id }).first()
+    .where({ id: id }).first()    
     .then(project => { 
         if (project.completed === 1) {
           project.completed = true
-          return project
+          return project 
       } else {
         project.completed = false
         return project
       }
     })
-}
-
-function findProjectTasks(project_id) {
-
 }
 
 function addProject(projectData) {

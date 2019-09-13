@@ -2,6 +2,7 @@ const db = require('../data/db-config');
 
 module.exports = {
   findTasks,
+  findProjectTasks,
   addTasks,
 }
 
@@ -30,6 +31,24 @@ function findTasks() {
       })
       return tasks;
     }) 
+}
+
+function findProjectTasks(id) {
+  return db('tasks')
+    .where('project_id', id)
+    .then(tasks => {
+
+      tasks.map(task => {
+        if (task.completed === 1) {
+          task.completed = true
+          return tasks
+        } else {
+          task.completed = false
+          return tasks
+        }
+      })
+      return tasks;
+    })
 }
 
 function addTasks(taskData) {
