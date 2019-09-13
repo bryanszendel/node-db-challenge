@@ -24,7 +24,10 @@ function findTasks() {
 function addTasks(taskData) {
   return db('tasks')
     .insert(taskData)
-    .then(task => {
-      return task
+    .then(ids => {
+      db('projects').where({ id: ids[0] })
+      .then(newTask => {
+        return newTask
+      })
     })
 }
